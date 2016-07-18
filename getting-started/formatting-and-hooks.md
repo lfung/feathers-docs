@@ -63,12 +63,12 @@ Let's generate that hook!
 
 ![Generating the message processing](./assets/process-hook.png)
 
-Now we can update `src/services/message/hooks/process.js` to:
+Now we can update `src/services/messages/hooks/process.js` to:
 
 ```js
 'use strict';
 
-// src/services/message/hooks/process.js
+// src/services/messages/hooks/process.js
 //
 // Use this hook to manipulate incoming or outgoing data.
 // For more information on hooks see: http://docs.feathersjs.com/hooks/readme.html
@@ -102,7 +102,7 @@ So far we've implemented a couple `before` hooks but we can also format our data
 
 Let's say that we want to populate the sender of each message so that we can display them in our UI. Instead of creating one of your own hooks, this time we'll use some that come [bundled with Feathers](../hooks/bundled.md). Specifically, we'll use the `populate` and `remove` hooks that come bundled with `feathers-hooks`.
 
-We need to make a small change to our `src/services/message/hooks/index.js` file so that it now looks like this:
+We need to make a small change to our `src/services/messages/hooks/index.js` file so that it now looks like this:
 
 ```js
 'use strict';
@@ -151,12 +151,12 @@ As you can see, manipulating data is pretty easy with hooks. To improve portabil
 
 We've seen how Hooks can be used to manipulate data but they can also be used for permissions and validations. We need one last hook that makes sure that users can only `remove`, `update` and `patch` their own message (see [the services chapter](../services/readme.md) for more information about those methods).
 
-We need a `restrict-to-sender` _before_ hook for the `message` service that runs before those methods. Go ahead and use the generator to create it.  Once you've generated the hook, change the file at `src/services/message/hooks/restrict-to-sender.js` to:
+We need a `restrict-to-sender` _before_ hook for the `messages` service that runs before those methods. Go ahead and use the generator to create it.  Once you've generated the hook, change the file at `src/services/messages/hooks/restrict-to-sender.js` to:
 
 ```js
 'use strict';
 
-// src/services/message/hooks/restrict-to-sender.js
+// src/services/messages/hooks/restrict-to-sender.js
 //
 // Use this hook to manipulate incoming or outgoing data.
 // For more information on hooks see: http://docs.feathersjs.com/hooks/readme.html
